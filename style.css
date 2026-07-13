@@ -1,0 +1,39 @@
+html
+
+*{
+    margin: 0.05em;
+    Text-align:left;
+    line-height: 1.5;
+
+}
+
+
+h1,h2,h3,h4,h5,h6 {
+    font-family: sans-serif;
+    color:sandybrown;opacity:1;
+    background-color: whitesmoke;
+
+
+}
+h2,nav,{
+    a{
+        font-weight: bold;
+        color: rgb(255, 85, 0);
+        justify-content: space-evenly;
+           }
+}
+footer{
+    background-color: rgb(255, 132, 0)
+}
+body
+{
+nav{
+    background-color: rgb(255, 132, 0) ;
+    color:black
+
+}   
+a{
+color: rgb(17, 0, 255);
+}
+}
+

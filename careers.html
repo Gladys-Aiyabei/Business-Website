@@ -1,48 +1,787 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Hydroburd Limited Company - Careers</title>
-       <link rel="stylesheet" type="text/css" href="style.css">
-    </head>
-    <hr>
-    <body>
-        <header>
-            <h1>Hydroburd Limited</h1>
-<hr>
-            <nav>
-                <a href="index.html">Home</a>
-                <a href="services.html">Services</a>
-                <a href="contact.html" target="_blank">Contact</a>
-                <a href="careers.html">Careers</a>
-            </nav>
-        </header>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Careers - Hydroburd Limited Company</title>
+    <link rel="icon" type="image/jpg" href="favacon.jpg">
+    <style>
+        /* ===== ROOT & GENERAL STYLES ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-        <main>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --success-color: #27ae60;
+            --light-bg: #ecf0f1;
+            --dark-text: #2c3e50;
+            --light-text: #7f8c8d;
+            --white: #ffffff;
+            --border-radius: 10px;
+            --transition: all 0.3s ease;
+            --box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
 
-<h2>Careers at Hydroburd Limited</h2>
-<hr>
-            <p>We are always looking for talented individuals to join our team. Check out our current job openings!</p>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--dark-text);
+            background-color: #f8f9fa;
+        }
 
-            <section>
-                <h3>Available Positions</h3>
-                <ul>
-                    <li>Project Manager</li>
-                    <li>Construction Engineer</li>
-                    <li>Site Supervisor</li>
-                    <li>Administrative Assistant</li>
+        /* ===== HEADER & NAVIGATION ===== */
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: var(--white);
+            padding: 20px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .header h1 {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .navbar {
+            margin-top: 15px;
+        }
+
+        .nav-list {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .nav-link {
+            color: var(--white);
+            text-decoration: none;
+            padding: 10px 18px;
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+            font-weight: 500;
+            font-size: 0.95rem;
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            background-color: var(--secondary-color);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+
+        /* ===== MAIN CONTENT ===== */
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            min-height: calc(100vh - 300px);
+        }
+
+        .page-title {
+            text-align: center;
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            margin: 40px 0 15px 0;
+            font-weight: 600;
+        }
+
+        .page-subtitle {
+            text-align: center;
+            color: var(--light-text);
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+            font-weight: 400;
+        }
+
+        /* ===== INTRO SECTION ===== */
+        .careers-intro {
+            background: var(--white);
+            padding: 40px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            margin-bottom: 50px;
+            text-align: center;
+            border-top: 4px solid var(--secondary-color);
+        }
+
+        .careers-intro p {
+            font-size: 1.05rem;
+            color: var(--light-text);
+            line-height: 1.8;
+        }
+
+        /* ===== POSITIONS SECTION ===== */
+        .positions-section {
+            margin-bottom: 50px;
+        }
+
+        .section-title {
+            color: var(--primary-color);
+            font-size: 2rem;
+            margin-bottom: 30px;
+            font-weight: 600;
+            border-left: 5px solid var(--secondary-color);
+            padding-left: 15px;
+        }
+
+        .positions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .job-card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            border-left: 4px solid var(--secondary-color);
+            cursor: pointer;
+        }
+
+        .job-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .job-title {
+            color: var(--primary-color);
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .job-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+
+        .job-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            color: var(--light-text);
+        }
+
+        .job-meta-item strong {
+            color: var(--secondary-color);
+        }
+
+        .job-description {
+            color: var(--light-text);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .job-requirements {
+            margin-bottom: 20px;
+        }
+
+        .job-requirements h4 {
+            color: var(--primary-color);
+            font-size: 1rem;
+            margin-bottom: 10px;
+        }
+
+        .requirement-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .requirement-list li {
+            color: var(--dark-text);
+            padding: 6px 0;
+            padding-left: 25px;
+            position: relative;
+            font-size: 0.9rem;
+        }
+
+        .requirement-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--success-color);
+            font-weight: bold;
+        }
+
+        .apply-btn {
+            background: linear-gradient(135deg, var(--secondary-color) 0%, #2980b9 100%);
+            color: var(--white);
+            border: none;
+            padding: 10px 25px;
+            border-radius: var(--border-radius);
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            width: 100%;
+            margin-top: 15px;
+        }
+
+        .apply-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(52, 152, 219, 0.3);
+        }
+
+        /* ===== WHY JOIN US SECTION ===== */
+        .why-join-section {
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+            color: var(--white);
+            padding: 50px 40px;
+            border-radius: var(--border-radius);
+            margin-bottom: 50px;
+            box-shadow: 0 6px 20px rgba(52, 152, 219, 0.2);
+        }
+
+        .why-join-section h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .benefit-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 25px;
+            border-radius: var(--border-radius);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: var(--transition);
+        }
+
+        .benefit-card:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-5px);
+        }
+
+        .benefit-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+
+        .benefit-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .benefit-card p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            opacity: 0.95;
+        }
+
+        /* ===== APPLICATION SECTION ===== */
+        .application-section {
+            background: var(--white);
+            padding: 40px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            margin-bottom: 50px;
+        }
+
+        .application-section h2 {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            font-weight: 600;
+            text-align: center;
+            border-bottom: 3px solid var(--secondary-color);
+            padding-bottom: 15px;
+        }
+
+        .application-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .application-method {
+            text-align: center;
+            padding: 30px;
+            border-radius: var(--border-radius);
+            background: #f8f9fa;
+            transition: var(--transition);
+        }
+
+        .application-method:hover {
+            background: var(--light-bg);
+            transform: translateY(-5px);
+        }
+
+        .application-method h3 {
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .application-method p {
+            color: var(--light-text);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+
+        .contact-link {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .contact-link:hover {
+            color: var(--accent-color);
+            text-decoration: underline;
+        }
+
+        /* ===== TESTIMONIALS SECTION ===== */
+        .testimonials-section {
+            margin-bottom: 50px;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            border-top: 3px solid var(--secondary-color);
+            transition: var(--transition);
+        }
+
+        .testimonial-card:hover {
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+        }
+
+        .testimonial-text {
+            color: var(--dark-text);
+            font-size: 0.95rem;
+            line-height: 1.8;
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            color: var(--primary-color);
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .testimonial-position {
+            color: var(--light-text);
+            font-size: 0.85rem;
+        }
+
+        .stars {
+            color: #f39c12;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: var(--white);
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 60px;
+            box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .footer p {
+            font-size: 0.95rem;
+            font-weight: 400;
+        }
+
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.6rem;
+            }
+
+            .nav-list {
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .page-title {
+                font-size: 1.8rem;
+            }
+
+            .positions-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .application-content {
+                grid-template-columns: 1fr;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .main-content {
+                padding: 15px;
+            }
+
+            .why-join-section {
+                padding: 35px 25px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 1.3rem;
+            }
+
+            .page-title {
+                font-size: 1.5rem;
+                margin: 20px 0 15px 0;
+            }
+
+            .job-card {
+                padding: 20px;
+            }
+
+            .job-title {
+                font-size: 1.2rem;
+            }
+
+            .section-title {
+                font-size: 1.4rem;
+            }
+
+            .apply-btn {
+                padding: 10px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <h1>Hydroburd Company Limited</h1>
+            <nav class="navbar">
+                <ul class="nav-list">
+                    <li><a href="index2.html" class="nav-link active">Home</a></li>
+                    <li><a href="services.html" class="nav-link">Services</a></li>
+                    <li><a href="contact.html" class="nav-link">Contacts</a></li>
+                    <li><a href="/ProductImages.html" class="nav-link">Products</a></li>
+                    <li><a href="/careers.html" class="nav-link">Careers</a></li>
                 </ul>
-            </section>
+            </nav>
+        </div>
+    </header>
 
-            <section>
-                <h3>How to Apply</h3>
+    <main class="main-content">
+        <h2 class="page-title">Join Our Team</h2>
+        <p class="page-subtitle">Build Your Career With Hydroburd Limited</p>
 
-<hr>
-                <p>If you are interested in any of the positions listed above, please submit your resume and a cover letter to our HR department at careers@hydroburd.com.</p>
-            </section>
-        </main>
-        <footer>
-            <hr>
+        <div class="careers-intro">
+            <p>We are always looking for talented and passionate individuals to join our growing team. At Hydroburd Limited, we believe our employees are our greatest asset. If you're looking for an exciting career in construction and engineering, we want to hear from you!</p>
+        </div>
+
+        <!-- Available Positions Section -->
+        <section class="positions-section">
+            <h2 class="section-title">Available Positions</h2>
+            <div class="positions-grid">
+                <div class="job-card">
+                    <h3 class="job-title">🏢 Project Manager</h3>
+                    <div class="job-meta">
+                        <div class="job-meta-item">
+                            <strong>Experience:</strong> 5+ Years
+                        </div>
+                        <div class="job-meta-item">
+                            <strong>Location:</strong> Kenya
+                        </div>
+                    </div>
+                    <p class="job-description">We're seeking an experienced Project Manager to oversee complex construction projects from inception to completion. Lead multidisciplinary teams and ensure projects are delivered on schedule and within budget.</p>
+                    <div class="job-requirements">
+                        <h4>Key Requirements:</h4>
+                        <ul class="requirement-list">
+                            <li>Bachelor's degree in Civil Engineering or Construction Management</li>
+                            <li>5+ years of project management experience</li>
+                            <li>PMP or equivalent certification preferred</li>
+                            <li>Strong leadership and communication skills</li>
+                            <li>Experience with project management software</li>
+                        </ul>
+                    </div>
+                 <a href="mailto:aiyabeigladys@outlook.com">Apply Now</a>
+                </div>
+
+                <div class="job-card">
+                    <h3 class="job-title">👨‍💼 Construction Engineer</h3>
+                    <div class="job-meta">
+                        <div class="job-meta-item">
+                            <strong>Experience:</strong> 3+ Years
+                        </div>
+                        <div class="job-meta-item">
+                            <strong>Location:</strong> East Africa
+                        </div>
+                    </div>
+                    <p class="job-description">Join our engineering team to design, plan, and oversee construction projects. Collaborate with architects, contractors, and stakeholders to ensure quality and compliance with all specifications.</p>
+                    <div class="job-requirements">
+                        <h4>Key Requirements:</h4>
+                        <ul class="requirement-list">
+                            <li>Bachelor's degree in Civil or Construction Engineering</li>
+                            <li>3+ years of relevant experience</li>
+                            <li>Strong technical and problem-solving skills</li>
+                            <li>Proficiency in CAD and BIM software</li>
+                            <li>Knowledge of building codes and standards</li>
+                        </ul>
+                    </div>
+                    <a href="mailto:aiyabeigladys@outlook.com">Apply Now</a>
+ 
+</a>
+                </div>
+
+                <div class="job-card">
+                    <h3 class="job-title">🔧 Site Supervisor</h3>
+                    <div class="job-meta">
+                        <div class="job-meta-item">
+                            <strong>Experience:</strong> 2+ Years
+                        </div>
+                        <div class="job-meta-item">
+                            <strong>Location:</strong> Kenya/Uganda
+                        </div>
+                    </div>
+                    <p class="job-description">Supervise daily construction activities on-site, manage labor, coordinate with subcontractors, and ensure compliance with safety regulations and project specifications.</p>
+                    <div class="job-requirements">
+                        <h4>Key Requirements:</h4>
+                        <ul class="requirement-list">
+                            <li>High school diploma; diploma in construction preferred</li>
+                            <li>2+ years of site supervision experience</li>
+                            <li>Safety certification (OSHA or equivalent)</li>
+                            <li>Excellent organizational and communication skills</li>
+                            <li>Physical ability to work on construction sites</li>
+                        </ul>
+                    </div>
+                    <a href="mailto:aiyabeigladys@outlook.com">Apply Now</a>
+                </div>
+
+                <div class="job-card">
+                    <h3 class="job-title">📊 Administrative Assistant</h3>
+                    <div class="job-meta">
+                        <div class="job-meta-item">
+                            <strong>Experience:</strong> 1+ Year
+                        </div>
+                        <div class="job-meta-item">
+                            <strong>Location:</strong> Nairobi
+                        </div>
+                    </div>
+                    <p class="job-description">Provide administrative support to project teams, manage documentation, coordinate meetings, and assist with general office operations. Support the smooth functioning of our headquarters.</p>
+                    <div class="job-requirements">
+                        <h4>Key Requirements:</h4>
+                        <ul class="requirement-list">
+                            <li>High school diploma or higher</li>
+                            <li>1+ years of administrative experience</li>
+                            <li>Proficiency in Microsoft Office Suite</li>
+                            <li>Excellent written and verbal communication</li>
+                            <li>Strong organizational and time management skills</li>
+                        </ul>
+                    </div>
+                    <a href="mailto:aiyabeigladys@outlook.com">Apply Now</a>
+                </div>
+
+                <div class="job-card">
+                    <h3 class="job-title">💻 IT Support Specialist</h3>
+                    <div class="job-meta">
+                        <div class="job-meta-item">
+                            <strong>Experience:</strong> 2+ Years
+                        </div>
+                        <div class="job-meta-item">
+                            <strong>Location:</strong> Nairobi
+                        </div>
+                    </div>
+                    <p class="job-description">Provide technical support to staff, maintain IT infrastructure, manage networks, and ensure data security. Support our digital transformation initiatives.</p>
+                    <div class="job-requirements">
+                        <h4>Key Requirements:</h4>
+                        <ul class="requirement-list">
+                            <li>Diploma or degree in IT or Computer Science</li>
+                            <li>2+ years of IT support experience</li>
+                            <li>Network and security knowledge</li>
+                            <li>Strong troubleshooting skills</li>
+                            <li>Excellent customer service orientation</li>
+                        </ul>
+                    </div>
+                     <a href="mailto:aiyabeigladys@outlook.com">Apply Now</a>
+                </div>
+
+                <div class="job-card">
+                    <h3 class="job-title">🎓 Graduate Trainee Program</h3>
+                    <div class="job-meta">
+                        <div class="job-meta-item">
+                            <strong>Experience:</strong> Fresh Graduates
+                        </div>
+                        <div class="job-meta-item">
+                            <strong>Location:</strong> East Africa
+                        </div>
+                    </div>
+                    <p class="job-description">Jumpstart your career with our comprehensive graduate trainee program. Learn from industry experts, gain practical experience, and develop skills in construction and engineering.</p>
+                    <div class="job-requirements">
+                        <h4>Key Requirements:</h4>
+                        <ul class="requirement-list">
+                            <li>Recent graduate (within 2 years)</li>
+                            <li>Degree in Engineering, Construction, or related field</li>
+                            <li>Strong academic performance</li>
+                            <li>Willingness to learn and adapt</li>
+                            <li>Excellent interpersonal skills</li>
+                        </ul>
+                    </div>
+                   <a href="mailto:aiyabeigladys@outlook.com">Apply Now</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Join Us Section -->
+        <section class="why-join-section">
+            <h2>Why Join Hydroburd Limited?</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">💼</div>
+                    <h3>Career Growth</h3>
+                    <p>We invest in our employees' professional development with training programs and clear career advancement opportunities.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">🤝</div>
+                    <h3>Collaborative Culture</h3>
+                    <p>Work with talented teams in a supportive environment where your contributions are valued and recognized.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">💰</div>
+                    <h3>Competitive Compensation</h3>
+                    <p>Enjoy competitive salaries, performance bonuses, and comprehensive benefits packages.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">🏥</div>
+                    <h3>Health & Wellness</h3>
+                    <p>Access to health insurance, wellness programs, and a safe working environment.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">🌍</div>
+                    <h3>Work Across East Africa</h3>
+                    <p>Work on diverse projects across multiple countries and gain international experience.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">📚</div>
+                    <h3>Continuous Learning</h3>
+                    <p>Access to industry certifications, workshops, and skill development programs.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Employee Testimonials -->
+        <section class="testimonials-section">
+            <h2 class="section-title">What Our Employees Say</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"Working at Hydroburd has been incredibly rewarding. The team is supportive, and I've grown professionally in ways I didn't expect. The company truly values its employees."</p>
+                    <p class="testimonial-author">John Kariuki</p>
+                    <p class="testimonial-position">Senior Project Manager</p>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"I started as a graduate trainee and have been promoted twice in just three years. The learning opportunities here are unmatched, and management genuinely cares about your development."</p>
+                    <p class="testimonial-author">Sarah Mwangi</p>
+                    <p class="testimonial-position">Construction Engineer</p>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"The work environment is professional, yet friendly. I appreciate the diversity of projects and the opportunity to work with experts in the industry. Highly recommended!"</p>
+                    <p class="testimonial-author">David Ochieng</p>
+                    <p class="testimonial-position">Site Supervisor</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- How to Apply Section -->
+        <section class="application-section">
+            <h2>How to Apply</h2>
+            <p style="text-align: center; color: var(--light-text); margin-bottom: 30px;">Interested in joining our team? Choose any of the following methods to submit your application:</p>
+            
+            <div class="application-content">
+                <div class="application-method">
+                    <h3>📧 Email</h3>
+                    <p>Send your resume and cover letter to:</p>
+                    <a href="mailto:careers@hydroburd.com" class="contact-link">careers@hydroburd.com</a>
+                </div>
+
+                <div class="application-method">
+                    <h3>🌐 Online Portal</h3>
+                    <p>Apply directly through our website:</p>
+                    <a href="#" class="contact-link">Visit Careers Portal</a>
+                </div>
+
+                <div class="application-method">
+                    <h3>📞 Direct Contact</h3>
+                    <p>Call our HR department:</p>
+                    <a href="tel:+254722131471" class="contact-link">+254 722 131471</a>
+                </div>
+            </div>
+
+            <div style="background: #f8f9fa; padding: 25px; border-radius: var(--border-radius); margin-top: 30px;">
+                <p style="color: var(--dark-text); text-align: center;"><strong>Application Tips:</strong> Include a detailed resume, cover letter highlighting your relevant experience, and any certifications. All applications are reviewed within 2 weeks.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
             <p>&copy; 2026 Hydroburd Limited. All rights reserved.</p>
-        </footer>
-    </body>
+        </div>
+    </footer>
+</body>
 </html>

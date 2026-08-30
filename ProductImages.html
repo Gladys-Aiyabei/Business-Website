@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - Hydroburd Limited Company</title>
+    <link rel="icon" type="image/jpg" href="favacon.jpg">
+    <style>
+        /* ===== ROOT & GENERAL STYLES ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --success-color: #27ae60;
+            --light-bg: #ecf0f1;
+            --dark-text: #2c3e50;
+            --light-text: #7f8c8d;
+            --white: #ffffff;
+            --border-radius: 10px;
+            --transition: all 0.3s ease;
+            --box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--dark-text);
+            background-color: #f8f9fa;
+        }
+
+        /* ===== HEADER & NAVIGATION ===== */
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: var(--white);
+            padding: 20px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .header h1 {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .navbar {
+            margin-top: 15px;
+        }
+
+        .nav-list {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .nav-link {
+            color: var(--white);
+            text-decoration: none;
+            padding: 10px 18px;
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+            font-weight: 500;
+            font-size: 0.95rem;
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            background-color: var(--secondary-color);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+
+        /* ===== MAIN CONTENT ===== */
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .page-title {
+            text-align: center;
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            margin: 40px 0 15px 0;
+            font-weight: 600;
+        }
+
+        .page-subtitle {
+            text-align: center;
+            color: var(--light-text);
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+            font-weight: 400;
+        }
+
+        /* ===== PRODUCTS INTRO SECTION ===== */
+        .products-intro {
+            background: var(--white);
+            padding: 40px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            margin-bottom: 50px;
+            text-align: center;
+            border-top: 4px solid var(--secondary-color);
+        }
+
+        .products-intro p {
+            font-size: 1.05rem;
+            color: var(--light-text);
+            line-height: 1.8;
+        }
+
+        /* ===== PRODUCTS GRID ===== */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 35px;
+            margin-bottom: 50px;
+        }
+
+        .product-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            cursor: pointer;
+            border: 1px solid #e8ebed;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+            border-color: var(--secondary-color);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 250px;
+            overflow: hidden;
+            background: linear-gradient(135deg, #f8f9fa 0%, #ecf0f1 100%);
+            position: relative;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.1);
+            filter: brightness(1.1);
+        }
+
+        .product-info {
+            padding: 30px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-card h3 {
+            color: var(--primary-color);
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .product-description {
+            color: var(--light-text);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .product-features {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+
+        .product-features li {
+            color: var(--dark-text);
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+            font-size: 0.9rem;
+        }
+
+        .product-features li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--secondary-color);
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .product-btn {
+            background: linear-gradient(135deg, var(--secondary-color) 0%, #2980b9 100%);
+            color: var(--white);
+            border: none;
+            padding: 10px 20px;
+            border-radius: var(--border-radius);
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            align-self: flex-start;
+            margin-top: auto;
+        }
+
+        .product-btn:hover {
+            transform: translateX(5px);
+            box-shadow: 0 6px 20px rgba(52, 152, 219, 0.3);
+        }
+
+        /* ===== DETAILED PRODUCTS SECTION ===== */
+        .detailed-products {
+            background: linear-gradient(135deg, #f8f9fa 0%, #ecf0f1 100%);
+            padding: 50px 0;
+            margin-bottom: 50px;
+            border-radius: var(--border-radius);
+        }
+
+        .detailed-products h2 {
+            text-align: center;
+            color: var(--primary-color);
+            font-size: 2rem;
+            margin-bottom: 40px;
+            font-weight: 600;
+        }
+
+        .product-detail {
+            background: var(--white);
+            margin-bottom: 30px;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+            transition: var(--transition);
+        }
+
+        .product-detail:hover {
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+        }
+
+        .product-detail-image {
+            width: 100%;
+            height: 300px;
+            overflow: hidden;
+        }
+
+        .product-detail-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .product-detail:hover .product-detail-image img {
+            transform: scale(1.05);
+        }
+
+        .product-detail-content {
+            padding: 35px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .product-detail-content h3 {
+            color: var(--primary-color);
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .product-detail-content p {
+            color: var(--light-text);
+            font-size: 0.95rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .feature-list {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+
+        .feature-list li {
+            color: var(--dark-text);
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+            font-size: 0.9rem;
+        }
+
+        .feature-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--success-color);
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        /* ===== CTA SECTION ===== */
+        .cta-section {
+            background: linear-gradient(135deg, var(--secondary-color) 0%, #2980b9 100%);
+            color: var(--white);
+            padding: 50px 40px;
+            border-radius: var(--border-radius);
+            text-align: center;
+            margin-bottom: 50px;
+            box-shadow: 0 6px 20px rgba(52, 152, 219, 0.2);
+        }
+
+        .cta-section h2 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .cta-section p {
+            font-size: 1.05rem;
+            margin-bottom: 25px;
+            opacity: 0.95;
+        }
+
+        .cta-btn {
+            background: var(--white);
+            color: var(--secondary-color);
+            padding: 12px 35px;
+            border: none;
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            display: inline-block;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: var(--white);
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 60px;
+            box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .footer p {
+            font-size: 0.95rem;
+            font-weight: 400;
+        }
+
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 1024px) {
+            .product-detail {
+                grid-template-columns: 1fr;
+            }
+
+            .product-detail-image {
+                height: 250px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.6rem;
+            }
+
+            .nav-list {
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .page-title {
+                font-size: 1.8rem;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+
+            .product-detail {
+                grid-template-columns: 1fr;
+            }
+
+            .product-detail-image {
+                height: 250px;
+            }
+
+            .product-detail-content {
+                padding: 25px;
+            }
+
+            .detailed-products {
+                padding: 35px 0;
+            }
+
+            .main-content {
+                padding: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 1.3rem;
+            }
+
+            .page-title {
+                font-size: 1.5rem;
+                margin: 20px 0 15px 0;
+            }
+
+            .product-card {
+                margin-bottom: 15px;
+            }
+
+            .product-info {
+                padding: 20px;
+            }
+
+            .product-detail-content {
+                padding: 20px;
+            }
+
+            .cta-section {
+                padding: 30px 20px;
+            }
+
+            .cta-section h2 {
+                font-size: 1.4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <h1>Hydroburd Company Limited</h1>
+            <nav class="navbar">
+                <ul class="nav-list">
+                     <li><a href="index2.html" class="nav-link active">Home</a></li>
+                    <li><a href="services.html" class="nav-link">Services</a></li>
+                    <li><a href="contact.html" class="nav-link">Contacts</a></li>
+                    <li><a href="/ProductImages.html" class="nav-link">Products</a></li>
+                    <li><a href="/careers.html" class="nav-link">Careers</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <h2 class="page-title">Our Products & Solutions</h2>
+        <p class="page-subtitle">Comprehensive construction and engineering solutions delivered with excellence</p>
+
+        <div class="products-intro">
+            <p>Hydroburd Limited offers a diverse range of high-quality construction products and services tailored to meet the unique needs of each project. Our portfolio showcases our expertise in commercial construction, civil engineering, and project management across East Africa.</p>
+        </div>
+
+        <div class="products-grid">
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="Commercial Construction.jpg" alt="Commercial Construction">
+                </div>
+                <div class="product-info">
+                    <h3>Commercial Construction</h3>
+                    <p class="product-description">Professional commercial construction services including office blocks, shopping centers, and commercial complexes built to the highest standards.</p>
+                    <ul class="product-features">
+                        <li>Office Buildings & Complexes</li>
+                        <li>Shopping Malls & Retail Centers</li>
+                        <li>Hotels & Hospitality Facilities</li>
+                        <li>Modern Design & Architecture</li>
+                    </ul>
+                    <button class="product-btn">See More details below</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="Construction Engineering Image.jpg" alt="Civil Engineering Works">
+                </div>
+                <div class="product-info">
+                    <h3>Civil Engineering Works</h3>
+                    <p class="product-description">Expert civil engineering solutions including earthworks, road construction, and infrastructure development with precision and quality assurance.</p>
+                    <ul class="product-features">
+                        <li>Road & Highway Construction</li>
+                        <li>Earthworks & Excavation</li>
+                        <li>Power Substation Works</li>
+                        <li>Infrastructure Development</li>
+                    </ul>
+                    <button class="product-btn">See More details below</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="Construction.jpg" alt="Inspection and Project Management">
+                </div>
+                <div class="product-info">
+                    <h3>Inspection & Project Management</h3>
+                    <p class="product-description">Comprehensive project management and quality assurance services ensuring timely delivery, cost control, and complete client satisfaction.</p>
+                    <ul class="product-features">
+                        <li>Project Planning & Scheduling</li>
+                        <li>Site Supervision & Inspection</li>
+                        <li>Quality Assurance Programs</li>
+                        <li>Budget & Cost Management</li>
+                    </ul>
+                    <button class="product-btn">See More details below</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="detailed-products">
+            <div class="main-content">
+                <h2>Detailed Product Overview</h2>
+
+                <div class="product-detail">
+                    <div class="product-detail-image">
+                        <img src="Commercial Construction.jpg" alt="Commercial Construction Details">
+                    </div>
+                    <div class="product-detail-content">
+                        <h3>Commercial Construction Excellence</h3>
+                        <p>Our commercial construction division specializes in delivering state-of-the-art buildings that meet international standards and client specifications. We combine innovative design with sustainable construction practices.</p>
+                        <ul class="feature-list">
+                            <li>Modern architectural design</li>
+                            <li>Structural engineering excellence</li>
+                            <li>Energy-efficient systems</li>
+                            <li>Sustainable building practices</li>
+                            <li>Quality materials & craftsmanship</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="product-detail">
+                    <div class="product-detail-content">
+                        <h3>Advanced Civil Engineering Solutions</h3>
+                        <p>With over a decade of experience, our civil engineering team delivers robust infrastructure solutions. We handle complex projects with precision, maintaining safety and quality standards throughout all phases of construction.</p>
+                        <ul class="feature-list">
+                            <li>Geotechnical investigations</li>
+                            <li>Advanced surveying technology</li>
+                            <li>Environmental compliance</li>
+                            <li>Infrastructure durability</li>
+                            <li>Safety-first approach</li>
+                        </ul>
+                    </div>
+                    <div class="product-detail-image">
+                        <img src="Construction Engineering Image.jpg" alt="Civil Engineering Details">
+                    </div>
+                </div>
+
+                <div class="product-detail">
+                    <div class="product-detail-image">
+                        <img src="Construction.jpg" alt="Project Management Details">
+                    </div>
+                    <div class="product-detail-content">
+                        <h3>Integrated Project Management Services</h3>
+                        <p>Our comprehensive project management approach ensures every project is delivered on schedule and within budget. We employ industry-best practices, transparent communication, and rigorous quality control measures.</p>
+                        <ul class="feature-list">
+                            <li>BIM technology integration</li>
+                            <li>Risk management strategies</li>
+                            <li>Stakeholder communication</li>
+                            <li>Performance monitoring</li>
+                            <li>Document management systems</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="cta-section">
+            <h2>Ready to Partner With Us?</h2>
+            <p>Discover how our products and services can transform your project vision into reality</p>
+            <a href="contact.html" class="cta-btn">Contact Our Team</a>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2026 Hydroburd Limited. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

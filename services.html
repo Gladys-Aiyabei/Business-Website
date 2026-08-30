@@ -1,19 +1,511 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <link rel="stylesheet" type="text/css" href="style.css">
-        <h2>Primary services include:</h2>
-        <ul>
-            <li>Commercial & Residential Buildings: Construction of office blocks, shopping malls, and private homes.</li>
-            <li>Civil Engineering: Earthworks, roads, and power substation civil works.</li>
-            <li>Project Management: End-to-end oversight, site supervision, and quantity surveying.</li>
-        </ul>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - Hydroburd Limited Company</title>
+    <link rel="icon" type="image/jpg" href="favacon.jpg">
+    <style>
+        /* ===== ROOT & GENERAL STYLES ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    </body>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --success-color: #27ae60;
+            --light-bg: #ecf0f1;
+            --dark-text: #2c3e50;
+            --light-text: #7f8c8d;
+            --white: #ffffff;
+            --border-radius: 10px;
+            --transition: all 0.3s ease;
+            --box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
 
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--dark-text);
+            background-color: #f8f9fa;
+        }
 
+        /* ===== HEADER & NAVIGATION ===== */
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: var(--white);
+            padding: 20px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
 
-    <footer>
-        <p>&copy; 2026 Hydroburd Limited. All rights reserved.</p>
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .header h1 {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .navbar {
+            margin-top: 15px;
+        }
+
+        .nav-list {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .nav-link {
+            color: var(--white);
+            text-decoration: none;
+            padding: 10px 18px;
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+            font-weight: 500;
+            font-size: 0.95rem;
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            background-color: var(--secondary-color);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+
+        /* ===== MAIN CONTENT ===== */
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            min-height: calc(100vh - 300px);
+        }
+
+        .page-title {
+            text-align: center;
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            margin: 40px 0 15px 0;
+            font-weight: 600;
+        }
+
+        .page-subtitle {
+            text-align: center;
+            color: var(--light-text);
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+            font-weight: 400;
+        }
+
+        /* ===== SERVICES SECTION ===== */
+        .services-intro {
+            background: var(--white);
+            padding: 40px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            margin-bottom: 50px;
+            text-align: center;
+            border-top: 4px solid var(--secondary-color);
+        }
+
+        .services-intro p {
+            font-size: 1.05rem;
+            color: var(--light-text);
+            line-height: 1.8;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 35px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            border-left: 5px solid var(--secondary-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--secondary-color), var(--accent-color));
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+
+        .service-card h3 {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .service-description {
+            color: var(--light-text);
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .service-features {
+            list-style: none;
+            margin-top: 15px;
+        }
+
+        .service-features li {
+            color: var(--dark-text);
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+            font-size: 0.95rem;
+        }
+
+        .service-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--success-color);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        /* ===== WHY CHOOSE US SECTION ===== */
+        .why-choose-us {
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+            padding: 50px 40px;
+            border-radius: var(--border-radius);
+            color: var(--white);
+            margin-bottom: 50px;
+            box-shadow: 0 6px 20px rgba(52, 152, 219, 0.2);
+        }
+
+        .why-choose-us h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .benefit-item {
+            display: flex;
+            gap: 15px;
+            align-items: flex-start;
+        }
+
+        .benefit-icon {
+            font-size: 2rem;
+            min-width: 50px;
+            text-align: center;
+        }
+
+        .benefit-content h4 {
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .benefit-content p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            opacity: 0.95;
+        }
+
+        /* ===== CALL TO ACTION ===== */
+        .cta-section {
+            background: var(--white);
+            padding: 40px;
+            border-radius: var(--border-radius);
+            text-align: center;
+            box-shadow: var(--box-shadow);
+            margin-bottom: 50px;
+        }
+
+        .cta-section h2 {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .cta-section p {
+            color: var(--light-text);
+            font-size: 1.05rem;
+            margin-bottom: 25px;
+        }
+
+        .cta-btn {
+            background: linear-gradient(135deg, var(--secondary-color) 0%, #2980b9 100%);
+            color: var(--white);
+            padding: 12px 35px;
+            border: none;
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(52, 152, 219, 0.3);
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: var(--white);
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 60px;
+            box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .footer p {
+            font-size: 0.95rem;
+            font-weight: 400;
+        }
+
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.6rem;
+            }
+
+            .nav-list {
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .page-title {
+                font-size: 1.8rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .service-card {
+                padding: 25px;
+            }
+
+            .why-choose-us {
+                padding: 35px 25px;
+            }
+
+            .benefits-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .main-content {
+                padding: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 1.3rem;
+            }
+
+            .page-title {
+                font-size: 1.5rem;
+                margin: 20px 0 15px 0;
+            }
+
+            .service-card {
+                padding: 20px;
+            }
+
+            .service-icon {
+                font-size: 2rem;
+            }
+
+            .service-card h3 {
+                font-size: 1.2rem;
+            }
+
+            .why-choose-us h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <h1>Hydroburd Company Limited</h1>
+            <nav class="navbar">
+                <ul class="nav-list">
+                    <li><a href="index2.html" class="nav-link active">Home</a></li>
+                    <li><a href="services.html" class="nav-link">Services</a></li>
+                    <li><a href="contact.html" class="nav-link">Contacts</a></li>
+                    <li><a href="/ProductImages.html" class="nav-link">Products</a></li>
+                    <li><a href="/careers.html" class="nav-link">Careers</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <h2 class="page-title">Our Services</h2>
+        <p class="page-subtitle">Comprehensive construction and engineering solutions for your projects</p>
+
+        <div class="services-intro">
+            <p>We provide a full range of construction and civil engineering services with a commitment to quality, safety, and timely delivery. Our experienced team is ready to transform your vision into reality.</p>
+        </div>
+
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">🏢</div>
+                <h3>Commercial & Residential Buildings</h3>
+                <p class="service-description">We specialize in constructing high-quality office blocks, shopping malls, and private residential homes with modern standards and sustainable practices.</p>
+                <ul class="service-features">
+                    <li>Office Complex Construction</li>
+                    <li>Shopping Mall Development</li>
+                    <li>Residential Housing Projects</li>
+                    <li>Quality Assurance</li>
+                </ul>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🏗️</div>
+                <h3>Civil Engineering Works</h3>
+                <p class="service-description">Expert earthworks, road construction, and power substation civil works with precision engineering and adherence to international standards.</p>
+                <ul class="service-features">
+                    <li>Earthworks & Excavation</li>
+                    <li>Road Construction</li>
+                    <li>Power Substation Works</li>
+                    <li>Infrastructure Development</li>
+                </ul>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">📋</div>
+                <h3>Project Management</h3>
+                <p class="service-description">End-to-end project oversight including site supervision, quality control, and quantity surveying to ensure projects stay on time and within budget.</p>
+                <ul class="service-features">
+                    <li>Project Planning & Coordination</li>
+                    <li>Site Supervision</li>
+                    <li>Quality Assurance</li>
+                    <li>Budget Management</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="why-choose-us">
+            <h2>Why Choose Hydroburd Limited?</h2>
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <div class="benefit-icon">⭐</div>
+                    <div class="benefit-content">
+                        <h4>Proven Experience</h4>
+                        <p>Over a decade of excellence in construction and engineering projects across East Africa.</p>
+                    </div>
+                </div>
+
+                <div class="benefit-item">
+                    <div class="benefit-icon">🎯</div>
+                    <div class="benefit-content">
+                        <h4>Quality Commitment</h4>
+                        <p>We maintain the highest standards of quality in all our projects and deliverables.</p>
+                    </div>
+                </div>
+
+                <div class="benefit-item">
+                    <div class="benefit-icon">⏱️</div>
+                    <div class="benefit-content">
+                        <h4>On-Time Delivery</h4>
+                        <p>Consistently deliver projects within agreed timelines with precision planning.</p>
+                    </div>
+                </div>
+
+                <div class="benefit-item">
+                    <div class="benefit-icon">🤝</div>
+                    <div class="benefit-content">
+                        <h4>Client-Focused</h4>
+                        <p>Your satisfaction is our priority; we maintain transparent communication throughout.</p>
+                    </div>
+                </div>
+
+                <div class="benefit-item">
+                    <div class="benefit-icon">💰</div>
+                    <div class="benefit-content">
+                        <h4>Cost-Effective</h4>
+                        <p>Delivering exceptional value for your investment without compromising quality.</p>
+                    </div>
+                </div>
+
+                <div class="benefit-item">
+                    <div class="benefit-icon">🌱</div>
+                    <div class="benefit-content">
+                        <h4>Sustainable Practices</h4>
+                        <p>Committed to environmentally responsible construction methods and solutions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="cta-section">
+            <h2>Ready to Start Your Project?</h2>
+            <p>Contact our team today to discuss your construction and engineering needs</p>
+            <a href="contact.html" class="cta-btn">Get in Touch</a>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2026 Hydroburd Limited. All rights reserved.</p>
+        </div>
     </footer>
+</body>
 </html>
